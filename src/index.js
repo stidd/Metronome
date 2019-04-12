@@ -1,16 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import "./styles.css";
+import "./Metronome.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+class Metronome extends Component {
+  render() {
+    let bpm = 100;
+    let playing = false;
+
+    return (
+      <div className="metronome">
+        <div className="bpm-slider">
+          <div>{bpm} BPM</div>
+          <input type="range" min="60" max="240" value={bpm} />
+        </div>
+        <button>{playing ? "Stop" : "Start"}</button>
+      </div>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Metronome />, rootElement);
